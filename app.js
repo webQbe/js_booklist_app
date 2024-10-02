@@ -101,6 +101,50 @@ class UI{
 
 // Store class : Handles storage
 
+class Store {
+
+    // 3 methods: getBooks, addBook, removeBook
+    // add static to call directly without instantiating Store class
+
+    static getBooks(){
+
+        // initialize books
+        let books;
+
+        // check for books item in local storage
+        if(localStorage.getItem('books') === null){
+             
+            // if true set books to empty array
+            books = [];
+
+        } else {
+            // get books and convert JS array
+            books = JSON.parse(localStorage.getItem('books'));
+
+        }
+        return books;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Events
