@@ -139,8 +139,24 @@ class Store {
         localStorage.setItem('books', JSON.stringify(books));
     }
 
-    static removeBook(){
+    static removeBook(isbn){
 
+        // get books array from local storage
+        const books = Store.getBooks();
+
+        // loop through array
+        books.forEach((book, index) => {
+
+            // check if current book's isbn  matches
+            if(book.isbn === isbn){
+
+                // remove book
+                books.splice(index, 1);
+            }
+        });
+
+        // save changes to local storage
+        localStorage.setItem('books', JSON.stringify(books));
     }
 
 }
