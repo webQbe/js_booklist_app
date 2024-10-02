@@ -85,6 +85,8 @@ class UI{
         // insert div inside container before form
         container.insertBefore(div, form);
 
+        // disappear in 3 seconds
+        setTimeout(() => document.querySelector('.alert').remove(), 3000)
 
     }
 
@@ -138,6 +140,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
             // Add book to UI
             UI.addBookToList(book);
 
+            // Show success message
+            UI.showAlert('Book Added!', 'success');
+
             // Clear fields
             UI.clearFields();
         }
@@ -152,6 +157,9 @@ document.querySelector('#book-list').addEventListener('click', (e) => {
     
     // pass clicked element to UI.deleteBook()
     UI.deleteBook(e.target);
+
+    // Show deleted message
+    UI.showAlert('Book Removed!', 'info');
 
 })
 
