@@ -55,16 +55,69 @@ class UI{
         
     }
 
+    // delete item rows
+    static deleteBook(click){
+        // check if clicked element has delete class
+        if(click.classList.contains('delete')){
+             
+            // specify element to delete
+            // <tr><td><td></tr>
+            click.parentElement.parentElement.remove();
+        }
+    }
+
+
+    static clearFields() {
+        document.querySelector('#title').value = '';
+        document.querySelector('#author').value = '';
+        document.querySelector('#isbn').value = '';
+    }
+
 }
 
 // Store class : Handles storage
 
+
+
 // Events
 
 // Display books event
-// as soon as DOM loads display books
+// as soon as DOM loads run displayBooks() in UI class
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
 
-// Add a book
-// Remove a book
+// Add a book event
+document.querySelector('#book-form').addEventListener('submit', (e) => {
+    // prevent submit to log on console
+    e.preventDefault();
+
+    // on form submit
+    // Get form values from book-form
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const isbn = document.querySelector('#isbn').value;
+
+    // Instantiate a book with Book class
+    const book = new Book(title, author, isbn);
+
+    // console.log(book);
+
+    // Add book to UI
+    UI.addBookToList(book);
+
+    // Clear fields
+    UI.clearFields();
+
+});
+
+// Remove a book event
+document.querySelector('#book-list').addEventListener('click', (e) => {
+
+    // display which element is clicked
+    // console.log(e.target);
+    
+    // pass clicked element to UI.deleteBook()
+    UI.deleteBook(e.target);
+
+})
+
