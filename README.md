@@ -7,3 +7,15 @@
 - OOP / Classes
 - Interact with local storage
 - Bootstrap
+
+## Classes
+
+- `Book` class : Represents a book
+- `UI` class : Handles UI tasks
+- `Store` class : Handles storage
+
+## Events
+
+- Display books
+- Add a book
+- Remove a book
