@@ -16,22 +16,8 @@ class Book{
 class UI{
     static displayBooks(){
        
-        const StoredBooks = [
-             // hardcode array of books
-             // pretend they're coming from local storage
-            {
-                title : 'Book One',
-                author : 'John Doe',
-                isbn : '3434434'
-            },
-            {
-                title : 'Book Two',
-                author : 'Jane Doe',
-                isbn : '45545',
-            }
-        ]
-
-        const books = StoredBooks;
+        // Get saved books from local storage
+        const books = Store.getBooks()
 
         books.forEach((book) => UI.addBookToList(book));
     }
@@ -63,6 +49,9 @@ class UI{
             // specify element to delete
             // <tr><td><td></tr>
             click.parentElement.parentElement.remove();
+
+            // Show deleted message
+            UI.showAlert('Book Removed!', 'info');
         }
     }
 
@@ -164,23 +153,6 @@ class Store {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Events
 
 // Display books event
@@ -215,8 +187,11 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
             // console.log(book);
 
-            // Add book to UI
+            // Add book to UI class
             UI.addBookToList(book);
+
+            // Add book to Store class
+            Store.addBook(book);
 
             // Show success message
             UI.showAlert('Book Added!', 'success');
@@ -229,15 +204,13 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
 // Remove a book event
 document.querySelector('#book-list').addEventListener('click', (e) => {
-
-    // display which element is clicked
-    // console.log(e.target);
     
+    // Remove book from UI class
     // pass clicked element to UI.deleteBook()
     UI.deleteBook(e.target);
 
-    // Show deleted message
-    UI.showAlert('Book Removed!', 'info');
-
+    // Remove book from Store class
+    // get isbn from previous sibling element
+    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 })
 
