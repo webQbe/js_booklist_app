@@ -118,11 +118,29 @@ class Store {
             books = [];
 
         } else {
-            // get books and convert JS array
+            // get books and convert to JS array
             books = JSON.parse(localStorage.getItem('books'));
 
         }
         return books;
+    }
+
+    static addBook(book){
+
+        // get books array from local storage
+        const books = Store.getBooks();
+
+        // push book to books array
+        books.push(book);
+
+        // write updated books to localstorage
+        // specify item to set and array
+        // convert books array to string
+        localStorage.setItem('books', JSON.stringify(books));
+    }
+
+    static removeBook(){
+
     }
 
 }
