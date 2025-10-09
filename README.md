@@ -1,6 +1,8 @@
 # Booklist App with JavaScript
+This repo is an adaptation of [JavaScript BookList App | No Frameworks](https://www.youtube.com/watch?v=JaMCxVWtW58&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=6&pp=iAQB) by Traversy Media. 
 
-- Users can enter book title, author, and ISBN using the form
+I followed the tutorial to learn followings:
+- Creating an app to collect book title, author, and ISBN using the form
 - When user click submit button, 'Book Added' message is displayed and the book will be added to the list
 - User can delete books in the list
 - No frameworks
@@ -19,3 +21,9 @@
 - Display books
 - Add a book
 - Remove a book
+
+## Credits
+Original tutorial: [JavaScript BookList App | No Frameworks](https://www.youtube.com/watch?v=JaMCxVWtW58&list=PLillGF-RfqbbnEGy3ROiLWk7JMCuSyQtX&index=6&pp=iAQB) — Traversy Media.
+
+## License
+MIT License
